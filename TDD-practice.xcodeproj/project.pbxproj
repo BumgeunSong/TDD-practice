@@ -12,24 +12,16 @@
 		87CC81042A7E4E21005CA343 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87CC81032A7E4E21005CA343 /* Assets.xcassets */; };
 		87CC81072A7E4E21005CA343 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87CC81062A7E4E21005CA343 /* Preview Assets.xcassets */; };
 		87CC81112A7E4E21005CA343 /* TDD_practiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CC81102A7E4E21005CA343 /* TDD_practiceTests.swift */; };
-		87CC811B2A7E4E21005CA343 /* TDD_practiceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CC811A2A7E4E21005CA343 /* TDD_practiceUITests.swift */; };
-		87CC811D2A7E4E21005CA343 /* TDD_practiceUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CC811C2A7E4E21005CA343 /* TDD_practiceUITestsLaunchTests.swift */; };
 		87CC812C2A7E4FBD005CA343 /* KataRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CC812B2A7E4FBD005CA343 /* KataRow.swift */; };
 		87CC812E2A7E4FDC005CA343 /* Kata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CC812D2A7E4FDC005CA343 /* Kata.swift */; };
 		87CC81302A7E50B1005CA343 /* KataList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CC812F2A7E50B1005CA343 /* KataList.swift */; };
 		87CC81322A7E50F7005CA343 /* KataDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CC81312A7E50F7005CA343 /* KataDetail.swift */; };
 		87CC81342A7E5343005CA343 /* KataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CC81332A7E5343005CA343 /* KataManager.swift */; };
+		87CC81362A7E5A11005CA343 /* WardrobeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CC81352A7E5A11005CA343 /* WardrobeManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		87CC810D2A7E4E21005CA343 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 87CC80F42A7E4E20005CA343 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 87CC80FB2A7E4E20005CA343;
-			remoteInfo = "TDD-practice";
-		};
-		87CC81172A7E4E21005CA343 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 87CC80F42A7E4E20005CA343 /* Project object */;
 			proxyType = 1;
@@ -46,14 +38,12 @@
 		87CC81062A7E4E21005CA343 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		87CC810C2A7E4E21005CA343 /* TDD-practiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TDD-practiceTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87CC81102A7E4E21005CA343 /* TDD_practiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDD_practiceTests.swift; sourceTree = "<group>"; };
-		87CC81162A7E4E21005CA343 /* TDD-practiceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TDD-practiceUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		87CC811A2A7E4E21005CA343 /* TDD_practiceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDD_practiceUITests.swift; sourceTree = "<group>"; };
-		87CC811C2A7E4E21005CA343 /* TDD_practiceUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDD_practiceUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		87CC812B2A7E4FBD005CA343 /* KataRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KataRow.swift; sourceTree = "<group>"; };
 		87CC812D2A7E4FDC005CA343 /* Kata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kata.swift; sourceTree = "<group>"; };
 		87CC812F2A7E50B1005CA343 /* KataList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KataList.swift; sourceTree = "<group>"; };
 		87CC81312A7E50F7005CA343 /* KataDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KataDetail.swift; sourceTree = "<group>"; };
 		87CC81332A7E5343005CA343 /* KataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KataManager.swift; sourceTree = "<group>"; };
+		87CC81352A7E5A11005CA343 /* WardrobeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,13 +61,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		87CC81132A7E4E21005CA343 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -86,7 +69,6 @@
 			children = (
 				87CC80FE2A7E4E20005CA343 /* TDD-practice */,
 				87CC810F2A7E4E21005CA343 /* TDD-practiceTests */,
-				87CC81192A7E4E21005CA343 /* TDD-practiceUITests */,
 				87CC80FD2A7E4E20005CA343 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -96,7 +78,6 @@
 			children = (
 				87CC80FC2A7E4E20005CA343 /* TDD-practice.app */,
 				87CC810C2A7E4E21005CA343 /* TDD-practiceTests.xctest */,
-				87CC81162A7E4E21005CA343 /* TDD-practiceUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -129,15 +110,6 @@
 			path = "TDD-practiceTests";
 			sourceTree = "<group>";
 		};
-		87CC81192A7E4E21005CA343 /* TDD-practiceUITests */ = {
-			isa = PBXGroup;
-			children = (
-				87CC811A2A7E4E21005CA343 /* TDD_practiceUITests.swift */,
-				87CC811C2A7E4E21005CA343 /* TDD_practiceUITestsLaunchTests.swift */,
-			);
-			path = "TDD-practiceUITests";
-			sourceTree = "<group>";
-		};
 		87CC81292A7E4F4E005CA343 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +126,7 @@
 			children = (
 				87CC812D2A7E4FDC005CA343 /* Kata.swift */,
 				87CC81332A7E5343005CA343 /* KataManager.swift */,
+				87CC81352A7E5A11005CA343 /* WardrobeManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -196,24 +169,6 @@
 			productReference = 87CC810C2A7E4E21005CA343 /* TDD-practiceTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		87CC81152A7E4E21005CA343 /* TDD-practiceUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 87CC81262A7E4E21005CA343 /* Build configuration list for PBXNativeTarget "TDD-practiceUITests" */;
-			buildPhases = (
-				87CC81122A7E4E21005CA343 /* Sources */,
-				87CC81132A7E4E21005CA343 /* Frameworks */,
-				87CC81142A7E4E21005CA343 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				87CC81182A7E4E21005CA343 /* PBXTargetDependency */,
-			);
-			name = "TDD-practiceUITests";
-			productName = "TDD-practiceUITests";
-			productReference = 87CC81162A7E4E21005CA343 /* TDD-practiceUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -228,10 +183,6 @@
 						CreatedOnToolsVersion = 14.3.1;
 					};
 					87CC810B2A7E4E21005CA343 = {
-						CreatedOnToolsVersion = 14.3.1;
-						TestTargetID = 87CC80FB2A7E4E20005CA343;
-					};
-					87CC81152A7E4E21005CA343 = {
 						CreatedOnToolsVersion = 14.3.1;
 						TestTargetID = 87CC80FB2A7E4E20005CA343;
 					};
@@ -252,7 +203,6 @@
 			targets = (
 				87CC80FB2A7E4E20005CA343 /* TDD-practice */,
 				87CC810B2A7E4E21005CA343 /* TDD-practiceTests */,
-				87CC81152A7E4E21005CA343 /* TDD-practiceUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -274,13 +224,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		87CC81142A7E4E21005CA343 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -289,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87CC81022A7E4E20005CA343 /* ContentView.swift in Sources */,
+				87CC81362A7E5A11005CA343 /* WardrobeManager.swift in Sources */,
 				87CC81342A7E5343005CA343 /* KataManager.swift in Sources */,
 				87CC812C2A7E4FBD005CA343 /* KataRow.swift in Sources */,
 				87CC812E2A7E4FDC005CA343 /* Kata.swift in Sources */,
@@ -306,15 +250,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		87CC81122A7E4E21005CA343 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				87CC811D2A7E4E21005CA343 /* TDD_practiceUITestsLaunchTests.swift in Sources */,
-				87CC811B2A7E4E21005CA343 /* TDD_practiceUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -322,11 +257,6 @@
 			isa = PBXTargetDependency;
 			target = 87CC80FB2A7E4E20005CA343 /* TDD-practice */;
 			targetProxy = 87CC810D2A7E4E21005CA343 /* PBXContainerItemProxy */;
-		};
-		87CC81182A7E4E21005CA343 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 87CC80FB2A7E4E20005CA343 /* TDD-practice */;
-			targetProxy = 87CC81172A7E4E21005CA343 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -543,42 +473,6 @@
 			};
 			name = Release;
 		};
-		87CC81272A7E4E21005CA343 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = BZ5Q7N6ST5;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.eddysong.TDD-practiceUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "TDD-practice";
-			};
-			name = Debug;
-		};
-		87CC81282A7E4E21005CA343 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = BZ5Q7N6ST5;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.eddysong.TDD-practiceUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "TDD-practice";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -605,15 +499,6 @@
 			buildConfigurations = (
 				87CC81242A7E4E21005CA343 /* Debug */,
 				87CC81252A7E4E21005CA343 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		87CC81262A7E4E21005CA343 /* Build configuration list for PBXNativeTarget "TDD-practiceUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				87CC81272A7E4E21005CA343 /* Debug */,
-				87CC81282A7E4E21005CA343 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

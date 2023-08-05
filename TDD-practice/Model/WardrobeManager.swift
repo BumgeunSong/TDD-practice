@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct WardrobeManager {
+    func combinations() -> [Int] {
+        return []
+    }
+}
