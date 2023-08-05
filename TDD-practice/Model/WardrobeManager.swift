@@ -9,7 +9,7 @@ import Foundation
 
 struct WardrobeManager {
     func combinations() -> [[Int]] {
-        return [[50], [100]]
+        return [[50, 50, 50, 50, 50], [100, 100, 50]]
     }
 }
 
