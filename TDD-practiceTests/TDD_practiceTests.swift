@@ -18,6 +18,11 @@ final class TDD_practiceTests: XCTestCase {
     func testWardrobeManager() {
         let sut = WardrobeManager()
         let combinations = sut.combinations()
-        XCTAssertEqual(combinations.reduce(0, +), 250)
+        let sumOfCombinations = combinations.map { combi in
+            combi.reduce(0, +)
+        }
+        for sum in sumOfCombinations {
+            XCTAssertEqual(sum, 250)
+        }
     }
 }
