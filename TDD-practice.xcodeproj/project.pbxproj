@@ -14,6 +14,11 @@
 		87CC81112A7E4E21005CA343 /* TDD_practiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CC81102A7E4E21005CA343 /* TDD_practiceTests.swift */; };
 		87CC811B2A7E4E21005CA343 /* TDD_practiceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CC811A2A7E4E21005CA343 /* TDD_practiceUITests.swift */; };
 		87CC811D2A7E4E21005CA343 /* TDD_practiceUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CC811C2A7E4E21005CA343 /* TDD_practiceUITestsLaunchTests.swift */; };
+		87CC812C2A7E4FBD005CA343 /* KataRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CC812B2A7E4FBD005CA343 /* KataRow.swift */; };
+		87CC812E2A7E4FDC005CA343 /* Kata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CC812D2A7E4FDC005CA343 /* Kata.swift */; };
+		87CC81302A7E50B1005CA343 /* KataList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CC812F2A7E50B1005CA343 /* KataList.swift */; };
+		87CC81322A7E50F7005CA343 /* KataDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CC81312A7E50F7005CA343 /* KataDetail.swift */; };
+		87CC81342A7E5343005CA343 /* KataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CC81332A7E5343005CA343 /* KataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +49,11 @@
 		87CC81162A7E4E21005CA343 /* TDD-practiceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TDD-practiceUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87CC811A2A7E4E21005CA343 /* TDD_practiceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDD_practiceUITests.swift; sourceTree = "<group>"; };
 		87CC811C2A7E4E21005CA343 /* TDD_practiceUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDD_practiceUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		87CC812B2A7E4FBD005CA343 /* KataRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KataRow.swift; sourceTree = "<group>"; };
+		87CC812D2A7E4FDC005CA343 /* Kata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kata.swift; sourceTree = "<group>"; };
+		87CC812F2A7E50B1005CA343 /* KataList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KataList.swift; sourceTree = "<group>"; };
+		87CC81312A7E50F7005CA343 /* KataDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KataDetail.swift; sourceTree = "<group>"; };
+		87CC81332A7E5343005CA343 /* KataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +105,8 @@
 			isa = PBXGroup;
 			children = (
 				87CC80FF2A7E4E20005CA343 /* TDD_practiceApp.swift */,
-				87CC81012A7E4E20005CA343 /* ContentView.swift */,
+				87CC812A2A7E4F51005CA343 /* Model */,
+				87CC81292A7E4F4E005CA343 /* Views */,
 				87CC81032A7E4E21005CA343 /* Assets.xcassets */,
 				87CC81052A7E4E21005CA343 /* Preview Content */,
 			);
@@ -125,6 +136,26 @@
 				87CC811C2A7E4E21005CA343 /* TDD_practiceUITestsLaunchTests.swift */,
 			);
 			path = "TDD-practiceUITests";
+			sourceTree = "<group>";
+		};
+		87CC81292A7E4F4E005CA343 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				87CC81012A7E4E20005CA343 /* ContentView.swift */,
+				87CC812B2A7E4FBD005CA343 /* KataRow.swift */,
+				87CC812F2A7E50B1005CA343 /* KataList.swift */,
+				87CC81312A7E50F7005CA343 /* KataDetail.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		87CC812A2A7E4F51005CA343 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				87CC812D2A7E4FDC005CA343 /* Kata.swift */,
+				87CC81332A7E5343005CA343 /* KataManager.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +289,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				87CC81022A7E4E20005CA343 /* ContentView.swift in Sources */,
+				87CC81342A7E5343005CA343 /* KataManager.swift in Sources */,
+				87CC812C2A7E4FBD005CA343 /* KataRow.swift in Sources */,
+				87CC812E2A7E4FDC005CA343 /* Kata.swift in Sources */,
+				87CC81322A7E50F7005CA343 /* KataDetail.swift in Sources */,
+				87CC81302A7E50B1005CA343 /* KataList.swift in Sources */,
 				87CC81002A7E4E20005CA343 /* TDD_practiceApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
