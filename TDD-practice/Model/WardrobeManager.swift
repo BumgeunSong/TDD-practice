@@ -12,13 +12,16 @@ struct WardrobeManager {
     private let wallLength = 250
 
     func combinations() -> [[Int]] {
-
         let maxCountOfCombination = wallLength / elements.min()!
+
+        return allCombinationsWithRepetition(maxCountOfCombination: maxCountOfCombination)
+            .filter { combination in combination.reduce(0, +) == wallLength }
+    }
+
+    func allCombinationsWithRepetition(maxCountOfCombination: Int) -> [[Int]] {
         return (1...maxCountOfCombination).reduce(into: [[Int]](), { partialResult, count in
             partialResult += combinationsWithRepetition(elements: elements, count: count, sum: wallLength)
-        }).filter { combination in
-            combination.reduce(0, +) == wallLength
-        }
+        })
     }
 
     func combinationsWithRepetition(elements: [Int], count: Int, sum: Int) -> [[Int]] {
