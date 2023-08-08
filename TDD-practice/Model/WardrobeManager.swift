@@ -9,17 +9,18 @@ import Foundation
 
 struct WardrobeManager {
     private let elements = [50, 75, 100, 120]
+    private let wallLength = 250
 
     func combinations() -> [[Int]] {
         var result = [[Int]]()
 
-        let maxCountOfCombination = 250 / elements.min()!
+        let maxCountOfCombination = wallLength / elements.min()!
         for i in (1...maxCountOfCombination) {
-            result += combinationsWithRepetition(elements: elements, count: i, sum: 250)
+            result += combinationsWithRepetition(elements: elements, count: i, sum: wallLength)
         }
 
         return result.filter { combination in
-            combination.reduce(0, +) == 250
+            combination.reduce(0, +) == wallLength
         }
     }
 
