@@ -19,6 +19,9 @@ final class TDD_practiceTests: XCTestCase {
     func test_all_sums_are_250() {
         let sut = WardrobeManager()
         let combinations = sut.combinations()
+        combinations.forEach { combination in
+            print(combination)
+        }
         let sumOfCombinations = combinations.map { combi in
             combi.reduce(0, +)
         }
