@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		873A19AF2A81D2A100D5E9BF /* GildedRoseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873A19AE2A81D2A100D5E9BF /* GildedRoseTests.swift */; };
+		873A19B12A81D2B200D5E9BF /* GuildedRose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873A19B02A81D2B200D5E9BF /* GuildedRose.swift */; };
+		873A19B32A81D2D200D5E9BF /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873A19B22A81D2D200D5E9BF /* Item.swift */; };
 		87CC81002A7E4E20005CA343 /* TDD_practiceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CC80FF2A7E4E20005CA343 /* TDD_practiceApp.swift */; };
 		87CC81022A7E4E20005CA343 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CC81012A7E4E20005CA343 /* ContentView.swift */; };
 		87CC81042A7E4E21005CA343 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87CC81032A7E4E21005CA343 /* Assets.xcassets */; };
@@ -31,6 +34,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		873A19AE2A81D2A100D5E9BF /* GildedRoseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GildedRoseTests.swift; sourceTree = "<group>"; };
+		873A19B02A81D2B200D5E9BF /* GuildedRose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuildedRose.swift; sourceTree = "<group>"; };
+		873A19B22A81D2D200D5E9BF /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		87CC80FC2A7E4E20005CA343 /* TDD-practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TDD-practice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87CC80FF2A7E4E20005CA343 /* TDD_practiceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDD_practiceApp.swift; sourceTree = "<group>"; };
 		87CC81012A7E4E20005CA343 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -64,6 +70,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		873A19B42A81D2DD00D5E9BF /* Wardrobe */ = {
+			isa = PBXGroup;
+			children = (
+				87CC81352A7E5A11005CA343 /* WardrobeManager.swift */,
+			);
+			path = Wardrobe;
+			sourceTree = "<group>";
+		};
+		873A19B52A81D2E700D5E9BF /* GuildedRose */ = {
+			isa = PBXGroup;
+			children = (
+				873A19B02A81D2B200D5E9BF /* GuildedRose.swift */,
+				873A19B22A81D2D200D5E9BF /* Item.swift */,
+			);
+			path = GuildedRose;
+			sourceTree = "<group>";
+		};
 		87CC80F32A7E4E20005CA343 = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				87CC81102A7E4E21005CA343 /* TDD_practiceTests.swift */,
+				873A19AE2A81D2A100D5E9BF /* GildedRoseTests.swift */,
 			);
 			path = "TDD-practiceTests";
 			sourceTree = "<group>";
@@ -124,9 +148,10 @@
 		87CC812A2A7E4F51005CA343 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				873A19B52A81D2E700D5E9BF /* GuildedRose */,
+				873A19B42A81D2DD00D5E9BF /* Wardrobe */,
 				87CC812D2A7E4FDC005CA343 /* Kata.swift */,
 				87CC81332A7E5343005CA343 /* KataManager.swift */,
-				87CC81352A7E5A11005CA343 /* WardrobeManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -231,11 +256,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				873A19B32A81D2D200D5E9BF /* Item.swift in Sources */,
 				87CC81022A7E4E20005CA343 /* ContentView.swift in Sources */,
 				87CC81362A7E5A11005CA343 /* WardrobeManager.swift in Sources */,
 				87CC81342A7E5343005CA343 /* KataManager.swift in Sources */,
 				87CC812C2A7E4FBD005CA343 /* KataRow.swift in Sources */,
 				87CC812E2A7E4FDC005CA343 /* Kata.swift in Sources */,
+				873A19B12A81D2B200D5E9BF /* GuildedRose.swift in Sources */,
 				87CC81322A7E50F7005CA343 /* KataDetail.swift in Sources */,
 				87CC81302A7E50B1005CA343 /* KataList.swift in Sources */,
 				87CC81002A7E4E20005CA343 /* TDD_practiceApp.swift in Sources */,
@@ -247,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87CC81112A7E4E21005CA343 /* TDD_practiceTests.swift in Sources */,
+				873A19AF2A81D2A100D5E9BF /* GildedRoseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
