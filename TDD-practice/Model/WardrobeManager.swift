@@ -12,7 +12,9 @@ struct WardrobeManager {
 
     func combinations() -> [[Int]] {
         var result = [[Int]]()
-        for i in (1...5) {
+
+        let maxCountOfCombination = 250 / elements.min()!
+        for i in (1...maxCountOfCombination) {
             result += combinationsWithRepetition(elements: elements, count: i, sum: 250)
         }
 
