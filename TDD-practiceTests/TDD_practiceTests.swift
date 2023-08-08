@@ -29,4 +29,10 @@ final class TDD_practiceTests: XCTestCase {
             XCTAssertEqual(sum, 250)
         }
     }
+
+    func test_5_combinations() {
+        let sut = WardrobeManager()
+        let combinations = sut.combinations()
+        XCTAssertEqual(combinations.count, 5)
+    }
 }
