@@ -6,6 +6,7 @@
 //
 
 import XCTest
+@testable import TDD_practice
 
 /*
  Gilded Rose 요구사항 명세
@@ -45,27 +46,34 @@ import XCTest
 
 final class GildedRoseTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    private let items: [Item] = [
+        Item(name: "+5 Dexterity Vest", sellIn: 10, quality: 20),
+        Item(name: "Aged Brie", sellIn: 2, quality: 0),
+        Item(name: "Elixir of the Mongoose", sellIn: 5, quality: 7),
+        Item(name: "Sulfuras, Hand of Ragnaros", sellIn: 0, quality: 80),
+        Item(name: "Sulfuras, Hand of Ragnaros", sellIn: -1, quality: 80),
+        Item(name: "Backstage passes to a TAFKAL80ETC concert", sellIn: 15, quality: 20),
+        Item(name: "Backstage passes to a TAFKAL80ETC concert", sellIn: 10, quality: 49),
+        Item(name: "Backstage passes to a TAFKAL80ETC concert", sellIn: 5, quality: 49),
+        // this conjured item does not work properly yet
+        Item(name: "Conjured Mana Cake", sellIn: 3, quality: 6),
+    ]
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+    var sut: GildedRose!
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
+    func testStart() {
+        sut = GildedRose(items: items)
+        let days = 2
+        for i in 0 ..< days {
+            print("-------- day \(i) --------")
+            print("name, sellIn, quality")
+            for item in items { print(item) }
+            print("")
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+            let dexterityVest = items[0]
+            XCTAssertEqual(dexterityVest.sellIn, 10 - i)
+            XCTAssertEqual(dexterityVest.quality, 20 - i)
+            sut.updateQuality()
         }
     }
-
 }
