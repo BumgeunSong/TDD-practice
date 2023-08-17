@@ -76,4 +76,15 @@ final class GildedRoseTests: XCTestCase {
             sut.updateQuality()
         }
     }
+
+    /// 하루가 지날때마다, 시스템은 두 값(SellIn, Quality)을 1 씩 감소시킨다.
+    func test_quality_should_reduce_one_by_day() {
+        let vest = Item(name: "+5 Dexterity Vest", sellIn: 10, quality: 20),
+        sut = GildedRose(items: [vest])
+        XCTAssertEqual(vest.sellIn, 10)
+        XCTAssertEqual(vest.quality, 20)
+        sut.updateQuality()
+        XCTAssertEqual(vest.sellIn, 9)
+        XCTAssertEqual(vest.quality, 19)
+    }
 }
