@@ -102,5 +102,17 @@ final class GildedRoseTests: XCTestCase {
         XCTAssertEqual(vest.sellIn, 9)
     }
 
+    func test_sellin_should_reduce_one_by_day_when_quality_is_zero() {
+        // Given
+        let brie = Item(name: "Aged Brie", sellIn: 2, quality: 0)
+        sut = GildedRose(items: [brie])
+
+        // When
+        sut.updateQuality()
+
+        // Then
+        XCTAssertEqual(brie.sellIn, 1)
+    }
+
     }
 }
