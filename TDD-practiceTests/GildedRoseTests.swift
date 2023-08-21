@@ -102,20 +102,32 @@ final class GildedRoseTests: XCTestCase {
         XCTAssertEqual(vest.sellIn, 9)
     }
 
+    //    - 판매하는 나머지 일수가 없어지면, Quality 값은 2배로 떨어집니다.
+    //    - Quality 값은 결코 음수가 되지는 않습니다.
     func test_sellin_should_reduce_one_by_day_when_quality_is_zero() {
         // Given
-        let brie = Item(name: "Aged Brie", sellIn: 2, quality: 0)
-        sut = GildedRose(items: [brie])
+        let elixir = Item(name: "Elixir of the Mongoose", sellIn: 2, quality: 0)
+        sut = GildedRose(items: [elixir])
 
         // When
         sut.updateQuality()
 
         // Then
-        XCTAssertEqual(brie.sellIn, 1)
+        XCTAssertEqual(elixir.sellIn, 1)
     }
 
 
     func test_quality_should_not_reduce_one_by_day_when_quality_is_zero() {
+        // Given
+        let elixir = Item(name: "Elixir of the Mongoose", sellIn: 2, quality: 0)
+        sut = GildedRose(items: [elixir])
+
+        // When
+        sut.updateQuality()
+
+        // Then
+        XCTAssertEqual(elixir.quality, 0)
+    }
         // Given
         let brie = Item(name: "Aged Brie", sellIn: 2, quality: 0)
         sut = GildedRose(items: [brie])
