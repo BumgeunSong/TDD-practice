@@ -128,6 +128,24 @@ final class GildedRoseTests: XCTestCase {
         // Then
         XCTAssertEqual(elixir.quality, 0)
     }
+
+    func test_quality_should_reduce_two_by_day_when_sellIn_is_zero() {
+        // Given
+        let elixir = Item(name: "Elixir of the Mongoose", sellIn: 0, quality: 10)
+        sut = GildedRose(items: [elixir])
+
+        // When
+        sut.updateQuality()
+
+        // Then
+        XCTAssertEqual(elixir.quality, 8)
+
+        // When
+        sut.updateQuality()
+
+        // Then
+        XCTAssertEqual(elixir.quality, 6)
+    }
         // Given
         let brie = Item(name: "Aged Brie", sellIn: 2, quality: 0)
         sut = GildedRose(items: [brie])
