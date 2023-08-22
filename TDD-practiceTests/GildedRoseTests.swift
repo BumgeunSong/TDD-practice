@@ -186,7 +186,7 @@ final class GildedRoseTests: XCTestCase {
     func test_quality_should_not_exceed_50() {
         // Given
         let brie = Item(name: "Aged Brie", sellIn: 0, quality: 0)
-        let vest = Item(name: "+5 Dexterity Vest", sellIn: 10, quality: 20)
+        let vest = Item(name: "+5 Dexterity Vest", sellIn: 10, quality: 50)
         sut = GildedRose(items: [brie, vest])
 
         (0...50).forEach { _ in
@@ -195,6 +195,21 @@ final class GildedRoseTests: XCTestCase {
             // Then
             XCTAssertLessThanOrEqual(brie.quality, 50)
             XCTAssertLessThanOrEqual(vest.quality, 50)
+        }
+    }
+
+    func test_quality_should_not_be_minus() {
+        // Given
+        let elixir = Item(name: "Elixir of the Mongoose", sellIn: 0, quality: 10)
+        let vest = Item(name: "+5 Dexterity Vest", sellIn: 10, quality: 50)
+        sut = GildedRose(items: [elixir, vest])
+
+        (0...50).forEach { _ in
+            // When
+            sut.updateQuality()
+            // Then
+            XCTAssertGreaterThanOrEqual(elixir.quality, 0)
+            XCTAssertGreaterThanOrEqual(vest.quality, 0)
         }
     }
 }
