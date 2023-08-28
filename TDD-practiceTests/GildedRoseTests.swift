@@ -230,20 +230,18 @@ final class GildedRoseTests: XCTestCase {
         }
     }
 
-    func test_backstage_pass_quality_should_increase_by_day_before_day_10() {
+    /// SellIn이 10 이상일 때는 퀄리티가 1 증가
+    func test_backstage_pass_quality_should_increase_by_day_when_sellIn_more_10() {
         // Given
-        let backstagePass1 = Item(name: "Backstage passes to a TAFKAL80ETC concert", sellIn: 15, quality: 20)
-        let backstagePass2 = Item(name: "Backstage passes to a TAFKAL80ETC concert", sellIn: 10, quality: 49)
-        let backstagePass3 = Item(name: "Backstage passes to a TAFKAL80ETC concert", sellIn: 5, quality: 49)
-        sut = GildedRose(items: [backstagePass1, backstagePass2, backstagePass3])
+        let backstagePass15 = Item(name: "Backstage passes to a TAFKAL80ETC concert", sellIn: 15, quality: 20)
+        sut = GildedRose(items: [backstagePass15])
 
-        (0..<9).forEach { days in
+        (1...5).forEach { days in
             // When
             sut.updateQuality()
             // Then
-            XCTAssertEqual(backstagePass1.sellIn, 20 + days)
-            XCTAssertEqual(backstagePass2.sellIn, 49 + days)
-            XCTAssertEqual(backstagePass3.sellIn, 49 + days)
+            let initialQuality = 20
+            XCTAssertEqual(backstagePass15.quality, initialQuality + days)
         }
     }
 }
