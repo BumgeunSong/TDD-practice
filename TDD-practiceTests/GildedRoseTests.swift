@@ -229,4 +229,21 @@ final class GildedRoseTests: XCTestCase {
             XCTAssertEqual(sulfruas2.quality, 80)
         }
     }
+
+    func test_backstage_pass_quality_should_increase_by_day_before_day_10() {
+        // Given
+        let backstagePass1 = Item(name: "Backstage passes to a TAFKAL80ETC concert", sellIn: 15, quality: 20)
+        let backstagePass2 = Item(name: "Backstage passes to a TAFKAL80ETC concert", sellIn: 10, quality: 49)
+        let backstagePass3 = Item(name: "Backstage passes to a TAFKAL80ETC concert", sellIn: 5, quality: 49)
+        sut = GildedRose(items: [backstagePass1, backstagePass2, backstagePass3])
+
+        (0..<9).forEach { days in
+            // When
+            sut.updateQuality()
+            // Then
+            XCTAssertEqual(backstagePass1.sellIn, 20 + days)
+            XCTAssertEqual(backstagePass2.sellIn, 49 + days)
+            XCTAssertEqual(backstagePass3.sellIn, 49 + days)
+        }
+    }
 }
