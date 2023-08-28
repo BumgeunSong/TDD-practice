@@ -30,7 +30,7 @@ import XCTest
  - Quality 값은 결코 음수가 되지는 않습니다.
  - "Aged Brie"(오래된 브리치즈)은(는) 시간이 지날수록 Quality 값이 올라갑니다.
  - Quality 값은 50를 초과 할 수 없습니다.
- - Sulfuras는 전설의 아이템이므로, 반드시 판매될 필요도 없고 Quality 값도 떨어지지 않습니다.
+ - Sulfuras는 전설의 아이템이므로, 반드시 판매될 필요도 없고 Quality 값도 떨어지지 않습니다. 전설의 아이템은 Quality가 50 이상일 수 있다.
  - "Backstage passes(백스테이지 입장권)"는 "Aged Brie"와 유사하게 SellIn 값에 가까워 질수록 Quality 값이 상승하고, 10일 부터는 매일 2 씩 증가하다, 5일 부터는이 되면 매일 3 씩 증가하지만, 콘서트 종료 후에는 0으로 떨어집니다.
 
  시스템 업데이트 요구 사항
@@ -210,6 +210,23 @@ final class GildedRoseTests: XCTestCase {
             // Then
             XCTAssertGreaterThanOrEqual(elixir.quality, 0)
             XCTAssertGreaterThanOrEqual(vest.quality, 0)
+        }
+    }
+
+    func test_Sulfuras_should_not_expire_or_deprecated() {
+        // Given
+        let sulfruas1 = Item(name: "Sulfuras, Hand of Ragnaros", sellIn: 0, quality: 80)
+        let sulfruas2 = Item(name: "Sulfuras, Hand of Ragnaros", sellIn: -1, quality: 80)
+        sut = GildedRose(items: [sulfruas1, sulfruas2])
+
+        (0...50).forEach { _ in
+            // When
+            sut.updateQuality()
+            // Then
+            XCTAssertEqual(sulfruas1.sellIn, 0)
+            XCTAssertEqual(sulfruas1.quality, 80)
+            XCTAssertEqual(sulfruas2.sellIn, -1)
+            XCTAssertEqual(sulfruas2.quality, 80)
         }
     }
 }
