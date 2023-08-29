@@ -230,18 +230,69 @@ final class GildedRoseTests: XCTestCase {
         }
     }
 
-    /// SellIn이 10 이상일 때는 퀄리티가 1 증가
+    /// SellIn이 10 초과일 때는 퀄리티가 1 증가
     func test_backstage_pass_quality_should_increase_by_day_when_sellIn_more_10() {
         // Given
         let backstagePass15 = Item(name: "Backstage passes to a TAFKAL80ETC concert", sellIn: 15, quality: 20)
         sut = GildedRose(items: [backstagePass15])
 
-        (1...5).forEach { days in
+        (1...4).forEach { days in
             // When
             sut.updateQuality()
             // Then
             let initialQuality = 20
+            XCTAssertGreaterThan(backstagePass15.sellIn, 10)
             XCTAssertEqual(backstagePass15.quality, initialQuality + days)
+        }
+    }
+
+    /// SellIn이 10이하일 때는 퀄리티가 2 증가
+    func test_backstage_pass_quality_should_increase_by_day_when_sellIn_5_9() {
+        // Given
+        let backstagePass10 = Item(name: "Backstage passes to a TAFKAL80ETC concert", sellIn: 10, quality: 49)
+
+        sut = GildedRose(items: [backstagePass10])
+
+        (1...4).forEach { days in
+            // When
+            sut.updateQuality()
+            // Then
+            let initialQuality = 49
+            XCTAssertGreaterThan(backstagePass10.sellIn, 5)
+            XCTAssertEqual(backstagePass10.quality, initialQuality + (days * 2))
+        }
+    }
+
+    /// SellIn이 1이상일 때는 퀄리티가 3 증가
+    func test_backstage_pass_quality_should_increase_by_day_when_sellIn_1_5() {
+        // Given
+        let backstagePass5 = Item(name: "Backstage passes to a TAFKAL80ETC concert", sellIn: 5, quality: 49)
+
+        sut = GildedRose(items: [backstagePass5])
+
+        (1...4).forEach { days in
+            // When
+            sut.updateQuality()
+            // Then
+            let initialQuality = 49
+            XCTAssertGreaterThan(backstagePass5.sellIn, 0)
+            XCTAssertEqual(backstagePass5.quality, initialQuality + (days * 3))
+        }
+    }
+
+    /// SellIn이 0이면 퀄리티는 0
+    func test_backstage_pass_quality_should_increase_by_day_when_sellIn_zero() {
+        // Given
+        let backstagePass5 = Item(name: "Backstage passes to a TAFKAL80ETC concert", sellIn: 1, quality: 49)
+
+        sut = GildedRose(items: [backstagePass5])
+
+        (1...4).forEach { days in
+            // When
+            sut.updateQuality()
+            // Then
+            XCTAssertEqual(backstagePass5.sellIn, 0)
+            XCTAssertEqual(backstagePass5.quality, 0)
         }
     }
 }
