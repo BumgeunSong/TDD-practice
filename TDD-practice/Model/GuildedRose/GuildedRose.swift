@@ -5,6 +5,13 @@
 //  Created by 송범근 on 2023/08/08.
 //
 
+/* 리팩토링 규칙
+- 한 함수 5줄 제한
+- 한 함수에서 호출, 전달 하나만 할 것
+- if문은 함수 시작에만 배치한다.
+- else를 사용하지 않는다.
+ */
+
 public class GildedRose {
     var items: [Item]
 
