@@ -19,19 +19,24 @@ public class GildedRose {
         self.items = items
     }
 
-    fileprivate func handleBackStagePass(_ i: Int) {
-        if items[i].name == "Backstage passes to a TAFKAL80ETC concert" {
-            if items[i].sellIn < 11 {
-                if items[i].quality < 50 {
-                    items[i].quality = items[i].quality + 1
-                }
-            }
+    fileprivate func increaseQuality(_ item: Item) {
+        if item.sellIn < 11 {
+            item.quality = item.quality + 1
+        }
 
-            if items[i].sellIn < 6 {
-                if items[i].quality < 50 {
-                    items[i].quality = items[i].quality + 1
-                }
-            }
+        if item.sellIn < 6 {
+            item.quality = item.quality + 1
+        }
+    }
+
+    fileprivate func increaseQualityIfPossible(_ item: Item) {
+        guard item.quality < 50 else { return }
+        increaseQuality(item)
+    }
+
+    fileprivate func handleBackStagePass(item: Item) {
+        if item.name == "Backstage passes to a TAFKAL80ETC concert" {
+            increaseQualityIfPossible(item)
         }
     }
 
@@ -47,7 +52,7 @@ public class GildedRose {
                 if items[i].quality < 50 {
                     items[i].quality = items[i].quality + 1
 
-                    handleBackStagePass(i)
+                    handleBackStagePass(item: items[i])
                 }
             }
 
