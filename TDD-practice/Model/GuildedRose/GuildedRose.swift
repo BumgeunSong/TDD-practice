@@ -33,19 +33,15 @@ enum Depreciation {
         case .progressiveIncreasing:
             if item.quality < 50 {
                 item.quality = item.quality + 1
-                increaseQualityIfPossible(item)
+                guard item.quality < 50 else { return }
+                let amount = increasingAmount(sellIn: item.sellIn)
+                item.quality += amount
             }
         }
     }
 
     fileprivate func canQualityDecrease(item: Item) -> Bool {
         return item.quality > 0
-    }
-
-    fileprivate func increaseQualityIfPossible(_ item: Item) {
-        guard item.quality < 50 else { return }
-        let amount = increasingAmount(sellIn: item.sellIn)
-        item.quality += amount
     }
 
     private func increasingAmount(sellIn: Int) -> Int {
