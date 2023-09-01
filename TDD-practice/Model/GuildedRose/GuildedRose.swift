@@ -33,9 +33,7 @@ enum Depreciation {
         case .progressiveIncreasing:
             if item.quality < 50 {
                 item.quality = item.quality + 1
-                if item.name == "Backstage passes to a TAFKAL80ETC concert" {
-                    increaseQualityIfPossible(item)
-                }
+                increaseQualityIfPossible(item)
             }
         }
     }
