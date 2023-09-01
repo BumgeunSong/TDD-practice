@@ -18,6 +18,15 @@ enum Depreciation {
     case same
     case progressiveIncreasing
 
+    static func of(item: Item) -> Depreciation {
+        switch item.name {
+        case "Aged Brie": return .increasing
+        case "Backstage passes to a TAFKAL80ETC concert": return .progressiveIncreasing
+        case "Sulfuras, Hand of Ragnaros": return .same
+        default: return .decreasing
+        }
+    }
+
     func apply(item: Item) {
         switch self {
         case .decreasing:
@@ -61,18 +70,10 @@ public class GildedRose {
         self.items = items
     }
 
-    func depreciation(of item: Item) -> Depreciation {
-        switch item.name {
-        case "Aged Brie": return .increasing
-        case "Backstage passes to a TAFKAL80ETC concert": return .progressiveIncreasing
-        case "Sulfuras, Hand of Ragnaros": return .same
-        default: return .decreasing
-        }
-    }
 
     public func updateQuality() {
         for i in 0 ..< items.count {
-            depreciation(of: items[i]).apply(item: items[i])
+            Depreciation.of(item: items[i]).apply(item: items[i])
 
             if items[i].name != "Sulfuras, Hand of Ragnaros" {
                 items[i].sellIn = items[i].sellIn - 1
