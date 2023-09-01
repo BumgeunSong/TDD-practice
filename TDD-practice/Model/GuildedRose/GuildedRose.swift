@@ -33,19 +33,15 @@ enum Depreciation {
         case .progressiveIncreasing:
             if item.quality < 50 {
                 item.quality = item.quality + 1
-                handleBackStagePass(item: item)
+                if item.name == "Backstage passes to a TAFKAL80ETC concert" {
+                    increaseQualityIfPossible(item)
+                }
             }
         }
     }
 
     fileprivate func canQualityDecrease(item: Item) -> Bool {
         return item.quality > 0
-    }
-
-    fileprivate func handleBackStagePass(item: Item) {
-        if item.name == "Backstage passes to a TAFKAL80ETC concert" {
-            increaseQualityIfPossible(item)
-        }
     }
 
     fileprivate func increaseQualityIfPossible(_ item: Item) {
