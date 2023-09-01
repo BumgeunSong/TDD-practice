@@ -37,6 +37,9 @@ enum Depreciation {
                 let amount = increasingAmount(sellIn: item.sellIn)
                 item.quality += amount
             }
+            if item.quality > 50 {
+                item.quality = 50
+            }
         }
     }
 
