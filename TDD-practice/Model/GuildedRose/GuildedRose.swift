@@ -39,9 +39,13 @@ public class GildedRose {
         }
     }
 
+    func shouldQualityDecrease(item: Item) -> Bool {
+        item.name != "Aged Brie" && item.name != "Backstage passes to a TAFKAL80ETC concert"
+    }
+
     public func updateQuality() {
         for i in 0 ..< items.count {
-            if items[i].name != "Aged Brie", items[i].name != "Backstage passes to a TAFKAL80ETC concert" {
+            if shouldQualityDecrease(item: items[i]) {
                 if items[i].quality > 0 {
                     if items[i].name != "Sulfuras, Hand of Ragnaros" {
                         items[i].quality = items[i].quality - 1
