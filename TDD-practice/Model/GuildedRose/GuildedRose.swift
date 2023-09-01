@@ -28,11 +28,7 @@ public class GildedRose {
     fileprivate func increaseQualityIfPossible(_ item: Item) {
         guard item.quality < 50 else { return }
         let amount = increasingAmount(sellIn: item.sellIn)
-        increaseQuality(item, amount: amount)
-    }
-
-    fileprivate func increaseQuality(_ item: Item, amount: Int) {
-        item.quality = item.quality + amount
+        item.quality += amount
     }
 
     private func increasingAmount(sellIn: Int) -> Int {
