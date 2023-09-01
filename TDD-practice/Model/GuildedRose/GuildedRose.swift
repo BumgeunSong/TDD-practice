@@ -31,12 +31,10 @@ enum Depreciation {
         case .same:
             break
         case .progressiveIncreasing:
-            if item.quality < 50 {
-                item.quality = item.quality + 1
-                guard item.quality < 50 else { return }
-                let amount = increasingAmount(sellIn: item.sellIn)
-                item.quality += amount
-            }
+            item.quality = item.quality + 1
+            let amount = increasingAmount(sellIn: item.sellIn)
+            item.quality += amount
+
             if item.quality > 50 {
                 item.quality = 50
             }
