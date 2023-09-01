@@ -12,6 +12,52 @@
 - else를 사용하지 않는다.
  */
 
+enum Depreciation {
+    case decreasing
+    case increasing
+    case same
+
+    func apply(item: Item) {
+        switch self {
+        case .decreasing:
+            if canQualityDecrease(item: item) {
+                item.quality = item.quality - 1
+            }
+        case .increasing:
+            if item.quality < 50 {
+                item.quality = item.quality + 1
+                handleBackStagePass(item: item)
+            }
+        case .same:
+            break
+        }
+    }
+
+    fileprivate func canQualityDecrease(item: Item) -> Bool {
+        return item.quality > 0
+    }
+
+    fileprivate func handleBackStagePass(item: Item) {
+        if item.name == "Backstage passes to a TAFKAL80ETC concert" {
+            increaseQualityIfPossible(item)
+        }
+    }
+
+    fileprivate func increaseQualityIfPossible(_ item: Item) {
+        guard item.quality < 50 else { return }
+        let amount = increasingAmount(sellIn: item.sellIn)
+        item.quality += amount
+    }
+
+    private func increasingAmount(sellIn: Int) -> Int {
+        switch sellIn {
+        case 1...5: return 2
+        case 6...10: return 1
+        default: return 0
+        }
+    }
+}
+
 public class GildedRose {
     var items: [Item]
 
@@ -49,12 +95,6 @@ public class GildedRose {
 
     fileprivate func canQualityDecrease(item: Item) -> Bool {
         return item.quality > 0
-    }
-
-    enum Depreciation {
-        case decreasing
-        case increasing
-        case same
     }
 
     func depreciation(of item: Item) -> Depreciation {
