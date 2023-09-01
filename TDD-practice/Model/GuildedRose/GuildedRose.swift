@@ -68,16 +68,19 @@ public class GildedRose {
 
     public func updateQuality() {
         for i in 0 ..< items.count {
-            if shouldQualityDecrease(item: items[i]) {
+            switch depreciation(of: items[i]) {
+            case .decreasing:
                 if canQualityDecrease(item: items[i]) {
                     items[i].quality = items[i].quality - 1
                 }
-            } else if !shouldQualitySame(item: items[i]) {
+            case .increasing:
                 if items[i].quality < 50 {
                     items[i].quality = items[i].quality + 1
 
                     handleBackStagePass(item: items[i])
                 }
+            case .same:
+                break
             }
 
             if items[i].name != "Sulfuras, Hand of Ragnaros" {
