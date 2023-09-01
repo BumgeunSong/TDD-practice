@@ -31,7 +31,6 @@ enum Depreciation {
         case .same:
             break
         case .progressiveIncreasing:
-            item.quality = item.quality + 1
             let amount = increasingAmount(sellIn: item.sellIn)
             item.quality += amount
 
@@ -47,9 +46,9 @@ enum Depreciation {
 
     private func increasingAmount(sellIn: Int) -> Int {
         switch sellIn {
-        case 1...5: return 2
-        case 6...10: return 1
-        default: return 0
+        case 1...5: return 3
+        case 6...10: return 2
+        default: return 1
         }
     }
 }
