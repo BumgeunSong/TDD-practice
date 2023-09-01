@@ -32,9 +32,11 @@ public class GildedRose {
     }
 
     private func increasingAmount(sellIn: Int) -> Int {
-        if sellIn < 6 { return 2 }
-        if sellIn < 11 { return 1 }
-        return 0
+        switch sellIn {
+        case 1...5: return 2
+        case 6...10: return 1
+        default: return 0
+        }
     }
 
     public func updateQuality() {
