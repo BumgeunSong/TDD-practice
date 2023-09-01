@@ -40,18 +40,24 @@ public class GildedRose {
     }
 
     func shouldQualityDecrease(item: Item) -> Bool {
-        item.name != "Aged Brie" && item.name != "Backstage passes to a TAFKAL80ETC concert"
+        item.name != "Aged Brie" && item.name != "Backstage passes to a TAFKAL80ETC concert" && item.name != "Sulfuras, Hand of Ragnaros"
+    }
+
+    fileprivate func shouldQualitySame(item: Item) -> Bool {
+        return item.name == "Sulfuras, Hand of Ragnaros"
+    }
+
+    fileprivate func canQualityDecrease(item: Item) -> Bool {
+        return item.quality > 0
     }
 
     public func updateQuality() {
         for i in 0 ..< items.count {
             if shouldQualityDecrease(item: items[i]) {
-                if items[i].quality > 0 {
-                    if items[i].name != "Sulfuras, Hand of Ragnaros" {
-                        items[i].quality = items[i].quality - 1
-                    }
+                if canQualityDecrease(item: items[i]) {
+                    items[i].quality = items[i].quality - 1
                 }
-            } else {
+            } else if !shouldQualitySame(item: items[i]) {
                 if items[i].quality < 50 {
                     items[i].quality = items[i].quality + 1
 
