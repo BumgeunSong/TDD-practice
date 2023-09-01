@@ -51,6 +51,21 @@ public class GildedRose {
         return item.quality > 0
     }
 
+    enum Depreciation {
+        case decreasing
+        case increasing
+        case same
+    }
+
+    func depreciation(of item: Item) -> Depreciation {
+        switch item.name {
+        case "Aged Brie": return .increasing
+        case "Backstage passes to a TAFKAL80ETC concert": return .increasing
+        case "Sulfuras, Hand of Ragnaros": return .same
+        default: return .decreasing
+        }
+    }
+
     public func updateQuality() {
         for i in 0 ..< items.count {
             if shouldQualityDecrease(item: items[i]) {
