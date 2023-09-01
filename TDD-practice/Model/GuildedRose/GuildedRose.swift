@@ -16,6 +16,7 @@ enum Depreciation {
     case decreasing
     case increasing
     case same
+    case progressiveIncreasing
 
     func apply(item: Item) {
         switch self {
@@ -26,10 +27,14 @@ enum Depreciation {
         case .increasing:
             if item.quality < 50 {
                 item.quality = item.quality + 1
-                handleBackStagePass(item: item)
             }
         case .same:
             break
+        case .progressiveIncreasing:
+            if item.quality < 50 {
+                item.quality = item.quality + 1
+                handleBackStagePass(item: item)
+            }
         }
     }
 
@@ -68,7 +73,7 @@ public class GildedRose {
     func depreciation(of item: Item) -> Depreciation {
         switch item.name {
         case "Aged Brie": return .increasing
-        case "Backstage passes to a TAFKAL80ETC concert": return .increasing
+        case "Backstage passes to a TAFKAL80ETC concert": return .progressiveIncreasing
         case "Sulfuras, Hand of Ragnaros": return .same
         default: return .decreasing
         }
