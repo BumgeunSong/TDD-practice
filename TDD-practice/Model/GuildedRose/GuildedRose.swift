@@ -100,16 +100,15 @@ public class GildedRose {
         if item.name != "Sulfuras, Hand of Ragnaros" {
             item.sellIn = item.sellIn - 1
         }
-
-        if item.sellIn < 0 {
-            depreciationWhenExpired(item)
-        }
     }
 
     public func updateQuality() {
         for item in items {
             Depreciation.of(item: item).apply(item: item)
             handeExpiration(item: item)
+            if item.sellIn < 0 {
+                Depreciation.ofWhenExpired(item: item).apply(item: item)
+            }
         }
     }
 }
