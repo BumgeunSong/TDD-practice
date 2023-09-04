@@ -96,10 +96,9 @@ public class GildedRose {
     }
 
     public func updateQuality() {
-        for i in 0 ..< items.count {
-            Depreciation.of(item: items[i]).apply(item: items[i])
-
-            handeExpiration(item: items[i])
+        for item in items {
+            Depreciation.of(item: item).apply(item: item)
+            handeExpiration(item: item)
         }
     }
 }
