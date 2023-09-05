@@ -84,16 +84,17 @@ public class GildedRose {
         self.items = items
     }
 
-    fileprivate func handeExpiration(item: Item) {
-        if item.name != "Sulfuras, Hand of Ragnaros" {
-            item.sellIn = item.sellIn - 1
+    func changeForSellIn(item: Item) -> Int  {
+        if item.name == "Sulfuras, Hand of Ragnaros" {
+            return 0
         }
+        return -1
     }
 
     public func updateQuality() {
         for item in items {
             item.quality += Depreciation.of(item: item).amountToChange(item: item)
-            handeExpiration(item: item)
+            item.sellIn += changeForSellIn(item: item)
             if item.sellIn < 0 {
                 item.quality += Depreciation.ofWhenExpired(item: item).amountToChange(item: item)
             }
