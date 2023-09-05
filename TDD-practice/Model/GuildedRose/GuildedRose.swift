@@ -37,27 +37,29 @@ enum Depreciation {
         }
     }
 
-    func apply(item: Item) {
+    func amountToChange(item: Item) -> Int {
         switch self {
         case .decreasing:
             if canQualityDecrease(item: item) {
-                item.quality = item.quality - 1
+                return -1
             }
+            return 0
         case .increasing:
             if item.quality < 50 {
-                item.quality = item.quality + 1
+                return 1
             }
+            return 0
         case .same:
-            break
+            return 0
         case .obselete:
-            item.quality = item.quality - item.quality
+            return  -item.quality
         case .progressiveIncreasing:
             let toBeAmount = item.quality + increasingAmount(sellIn: item.sellIn) // 불변하게 만들고 싶다..
 
             if toBeAmount > 50 {
-                item.quality = 50
+                return (50 - item.quality)
             } else {
-                item.quality = toBeAmount
+                return increasingAmount(sellIn: item.sellIn)
             }
         }
     }
@@ -90,10 +92,10 @@ public class GildedRose {
 
     public func updateQuality() {
         for item in items {
-            Depreciation.of(item: item).apply(item: item)
+            item.quality += Depreciation.of(item: item).amountToChange(item: item)
             handeExpiration(item: item)
             if item.sellIn < 0 {
-                Depreciation.ofWhenExpired(item: item).apply(item: item)
+                item.quality += Depreciation.ofWhenExpired(item: item).amountToChange(item: item)
             }
         }
     }
