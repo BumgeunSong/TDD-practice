@@ -38,6 +38,10 @@ enum Depreciation {
     }
 
     func amountToChange(item: Item) -> Int {
+        amountForDepreciation(item: item)
+    }
+
+    func amountForDepreciation(item: Item) -> Int {
         switch self {
         case .decreasing:
             if canQualityDecrease(item: item) {
