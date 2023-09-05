@@ -97,8 +97,8 @@ public class GildedRose {
 
     public func updateQuality() {
         for item in items {
-            item.quality += Depreciation.of(item: item).amountToChange(item: item)
             item.sellIn += changeForSellIn(item: item)
+            item.quality += Depreciation.of(item: item).amountToChange(item: item)
             if item.sellIn < 0 {
                 item.quality += Depreciation.ofWhenExpired(item: item).amountToChange(item: item)
             }
