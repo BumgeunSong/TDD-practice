@@ -92,12 +92,16 @@ public class GildedRose {
     }
 
     public func updateQuality() {
-        for item in items {
+        items = items.map { item -> Item in
             item.sellIn += changeForSellIn(item: item)
+            return item
+        }.map { item -> Item in
             item.quality += amountToChange(item: item)
-            if item.sellIn < 0 {
-                item.quality += amountToChangeIfExpired(item: item)
-            }
+            return item
+        }.map { item -> Item in
+            guard item.sellIn < 0 else { return item }
+            item.quality += amountToChangeIfExpired(item: item)
+            return item
         }
     }
 
