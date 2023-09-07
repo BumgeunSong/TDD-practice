@@ -77,6 +77,24 @@ final class GildedRoseTests: XCTestCase {
         }
     }
 
+    ///"Conjured" 아이템은 일반 아이템의 2배의 속도로 품질(Quality) 저하
+    func test_conjured_should_reduce_two_by_day_when_not_expired() {
+        // Given
+        let conjured = Item(name: "Conjured Mana Cake", sellIn: 3, quality: 6)
+        sut = GildedRose(items: [conjured])
+
+        // Then
+        (1...3).forEach { days in
+            // When
+            sut.updateQuality()
+
+            // Then
+            let initialQuality = 6
+            XCTAssertGreaterThan(conjured.sellIn, 0)
+            XCTAssertEqual(conjured.quality, initialQuality - (days * 2))
+        }
+    }
+
     /// 하루가 지날때마다, 시스템은 두 값(SellIn, Quality)을 1 씩 감소시킨다.
     func test_quality_should_reduce_one_by_day() {
         // Given
