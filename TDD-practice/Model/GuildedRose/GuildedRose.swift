@@ -43,12 +43,12 @@ enum Depreciation {
     func amountForDepreciation(item: Item) -> Int {
         switch self {
         case .decreasing:
-            if canQualityDecrease(item: item) {
+            if item.quality > 0 {
                 return -1
             }
             return 0
         case .decreasing2X:
-            if canQualityDecrease(item: item) {
+            if item.quality > 0 {
                 return -2
             }
             return 0
@@ -70,10 +70,6 @@ enum Depreciation {
                 return increasingAmount(sellIn: item.sellIn)
             }
         }
-    }
-
-    fileprivate func canQualityDecrease(item: Item) -> Bool {
-        return item.quality > 0
     }
 
     private func increasingAmount(sellIn: Int) -> Int {
