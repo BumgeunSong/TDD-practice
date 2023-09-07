@@ -90,8 +90,25 @@ final class GildedRoseTests: XCTestCase {
 
             // Then
             let initialQuality = 6
-            XCTAssertGreaterThan(conjured.sellIn, 0)
+            XCTAssertGreaterThanOrEqual(conjured.sellIn, 0)
             XCTAssertEqual(conjured.quality, initialQuality - (days * 2))
+        }
+    }
+
+    func test_conjured_should_reduce_4_by_day_when_expired() {
+        // Given
+        let conjured = Item(name: "Conjured Mana Cake", sellIn: 0, quality: 15)
+        sut = GildedRose(items: [conjured])
+
+        // Then
+        (1...3).forEach { days in
+            // When
+            sut.updateQuality()
+
+            // Then
+            let initialQuality = 15
+            XCTAssertLessThan(conjured.sellIn, 0)
+            XCTAssertEqual(conjured.quality, initialQuality - (days * 4))
         }
     }
 
