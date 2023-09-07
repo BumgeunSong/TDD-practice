@@ -14,6 +14,7 @@
 
 enum Depreciation {
     case decreasing
+    case decreasing2X
     case increasing
     case same
     case progressiveIncreasing
@@ -24,6 +25,7 @@ enum Depreciation {
         case "Aged Brie": return .increasing
         case "Backstage passes to a TAFKAL80ETC concert": return .progressiveIncreasing
         case "Sulfuras, Hand of Ragnaros": return .same
+        case "Conjured Mana Cake": return .decreasing2X
         default: return .decreasing
         }
     }
@@ -33,6 +35,7 @@ enum Depreciation {
         case "Aged Brie": return .increasing
         case "Backstage passes to a TAFKAL80ETC concert": return .obselete
         case "Sulfuras, Hand of Ragnaros": return .same
+        case "Conjured Mana Cake": return .decreasing2X
         default: return .decreasing
         }
     }
@@ -42,6 +45,11 @@ enum Depreciation {
         case .decreasing:
             if canQualityDecrease(item: item) {
                 return -1
+            }
+            return 0
+        case .decreasing2X:
+            if canQualityDecrease(item: item) {
+                return -2
             }
             return 0
         case .increasing:
