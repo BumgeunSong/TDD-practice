@@ -112,6 +112,22 @@ final class GildedRoseTests: XCTestCase {
         }
     }
 
+    func test_conjured_should_not_be_minus() {
+        // Given
+        let conjured = Item(name: "Conjured Mana Cake", sellIn: 0, quality: 3)
+        sut = GildedRose(items: [conjured])
+
+        // Then
+        (1...3).forEach { days in
+            // When
+            sut.updateQuality()
+
+            // Then
+            XCTAssertLessThan(conjured.sellIn, 0)
+            XCTAssertEqual(conjured.quality, 0)
+        }
+    }
+
     /// 하루가 지날때마다, 시스템은 두 값(SellIn, Quality)을 1 씩 감소시킨다.
     func test_quality_should_reduce_one_by_day() {
         // Given
