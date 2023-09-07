@@ -48,8 +48,10 @@ enum Depreciation {
             }
             return 0
         case .decreasing2X:
-            if item.quality > 0 {
+            if item.quality > 1 {
                 return -2
+            } else if item.quality > 0 {
+                return -1
             }
             return 0
         case .increasing:
