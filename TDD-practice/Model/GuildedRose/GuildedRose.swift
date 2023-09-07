@@ -108,6 +108,8 @@ public class GildedRose {
             guard item.sellIn < 0 else { return item }
             item.quality += amountToChangeIfExpired(item: item)
             return item
+        }.map { item -> Item in
+            adjustForLimit(item: item)
         }
     }
 
@@ -117,5 +119,18 @@ public class GildedRose {
 
     func amountToChangeIfExpired(item: Item) -> Int {
         Depreciation.ofWhenExpired(item: item).amountForDepreciation(item: item)
+    }
+
+    func adjustForLimit(item: Item) -> Item {
+        if item.name == "Sulfuras, Hand of Ragnaros" { return item }
+
+        var newItem = item
+        if item.quality > 50 {
+            item.quality = 50
+        }
+        if item.quality < 0 {
+            item.quality = 0
+        }
+        return item
     }
 }
