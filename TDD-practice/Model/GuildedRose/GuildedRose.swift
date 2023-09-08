@@ -123,22 +123,33 @@ public class GildedRose {
     }
 
     public func updateQuality() {
-        items = items.map { item -> Item in
-            updateSellIn(item: item)
-        }.map { item -> Item in
-            updateQuality(item: item)
-        }.map { item -> Item in
-            adjustForLimit(item: item)
-        }
+        items = items
+            .updateSellIn()
+            .updateQuality()
+            .adjustForLimit()
+    }
+}
+
+extension Array where Element == Item {
+    func updateSellIn() -> Self {
+        self.map { updateSellIn(item: $0) }
     }
 
-    func updateSellIn(item: Item) -> Item {
+    func updateQuality() -> Self {
+        self.map { updateQuality(item: $0) }
+    }
+
+    func adjustForLimit() -> Self {
+        self.map { adjustForLimit(item: $0) }
+    }
+
+    private func updateSellIn(item: Item) -> Item {
         var newItem = item
         newItem.sellIn += PolicyMaker.expiryPolicy(of: item).amountToChange
         return newItem
     }
 
-    func updateQuality(item: Item) -> Item {
+    private func updateQuality(item: Item) -> Item {
         var newItem = item
 
         newItem.quality += PolicyMaker.qualityPolicy(of: item).amountToChange(item: item)
@@ -149,7 +160,7 @@ public class GildedRose {
         return newItem
     }
 
-    func adjustForLimit(item: Item) -> Item {
+    private func adjustForLimit(item: Item) -> Item {
         let qualityLimit = PolicyMaker.qualityLimit(of: item)
 
         var newItem = item
