@@ -12,15 +12,8 @@
 - else를 사용하지 않는다.
  */
 
-enum Depreciation {
-    case decreasing
-    case decreasing2X
-    case increasing
-    case same
-    case progressiveIncreasing
-    case obsolete
-
-    static func of(item: Item) -> Depreciation {
+struct PolicyMaker {
+    static func qualityPolicy(of item: Item) -> QualityPolicy {
         switch item.name {
         case "Aged Brie": return .increasing
         case "Backstage passes to a TAFKAL80ETC concert": return .progressiveIncreasing
@@ -30,7 +23,7 @@ enum Depreciation {
         }
     }
 
-    static func ofWhenExpired(item: Item) -> Depreciation {
+    static func qualityPolicyWhenExpired(of item: Item) -> QualityPolicy {
         switch item.name {
         case "Aged Brie": return .increasing
         case "Backstage passes to a TAFKAL80ETC concert": return .obsolete
@@ -39,8 +32,17 @@ enum Depreciation {
         default: return .decreasing
         }
     }
+}
 
-    func amountForDepreciation(item: Item) -> Int {
+enum QualityPolicy {
+    case decreasing
+    case decreasing2X
+    case increasing
+    case same
+    case progressiveIncreasing
+    case obsolete
+
+    func amountToChange(item: Item) -> Int {
         switch self {
         case .decreasing:
             return -1
@@ -97,11 +99,11 @@ public class GildedRose {
     }
 
     func amountToChange(item: Item) -> Int {
-        Depreciation.of(item: item).amountForDepreciation(item: item)
+        PolicyMaker.qualityPolicy(of: item).amountToChange(item: item)
     }
 
     func amountToChangeIfExpired(item: Item) -> Int {
-        Depreciation.ofWhenExpired(item: item).amountForDepreciation(item: item)
+        PolicyMaker.qualityPolicyWhenExpired(of: item).amountToChange(item: item)
     }
 
     func adjustForLimit(item: Item) -> Item {
