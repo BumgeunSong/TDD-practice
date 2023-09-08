@@ -43,34 +43,17 @@ enum Depreciation {
     func amountForDepreciation(item: Item) -> Int {
         switch self {
         case .decreasing:
-            if item.quality > 0 {
-                return -1
-            }
-            return 0
+            return -1
         case .decreasing2X:
-            if item.quality > 1 {
-                return -2
-            } else if item.quality > 0 {
-                return -1
-            }
-            return 0
+            return -2
         case .increasing:
-            if item.quality < 50 {
-                return 1
-            }
-            return 0
+            return 1
         case .same:
             return 0
         case .obsolete:
             return  -item.quality
         case .progressiveIncreasing:
-            let toBeAmount = item.quality + increasingAmount(sellIn: item.sellIn) // 불변하게 만들고 싶다..
-
-            if toBeAmount > 50 {
-                return (50 - item.quality)
-            } else {
-                return increasingAmount(sellIn: item.sellIn)
-            }
+            return increasingAmount(sellIn: item.sellIn)
         }
     }
 
