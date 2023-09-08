@@ -122,35 +122,31 @@ public class GildedRose {
         self.items = items
     }
 
-    func changeForSellIn(item: Item) -> Int  {
-        if item.name == "Sulfuras, Hand of Ragnaros" {
-            return 0
-        }
-        return -1
-    }
-
     public func updateQuality() {
         items = items.map { item -> Item in
-            item.sellIn += PolicyMaker.expiryPolicy(of: item).amountToChange
-            return item
+            updateSellIn(item: item)
         }.map { item -> Item in
-            item.quality += amountToChange(item: item)
-            return item
-        }.map { item -> Item in
-            guard item.sellIn < 0 else { return item }
-            item.quality += amountToChangeIfExpired(item: item)
-            return item
+            updateQuality(item: item)
         }.map { item -> Item in
             adjustForLimit(item: item)
         }
     }
 
-    func amountToChange(item: Item) -> Int {
-        PolicyMaker.qualityPolicy(of: item).amountToChange(item: item)
+    func updateSellIn(item: Item) -> Item {
+        var newItem = item
+        newItem.sellIn += PolicyMaker.expiryPolicy(of: item).amountToChange
+        return newItem
     }
 
-    func amountToChangeIfExpired(item: Item) -> Int {
-        PolicyMaker.qualityPolicyWhenExpired(of: item).amountToChange(item: item)
+    func updateQuality(item: Item) -> Item {
+        var newItem = item
+
+        newItem.quality += PolicyMaker.qualityPolicy(of: item).amountToChange(item: item)
+
+        guard item.sellIn < 0 else { return newItem }
+        newItem.quality += PolicyMaker.qualityPolicyWhenExpired(of: item).amountToChange(item: item)
+
+        return newItem
     }
 
     func adjustForLimit(item: Item) -> Item {
