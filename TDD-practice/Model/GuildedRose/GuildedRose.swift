@@ -18,7 +18,7 @@ enum Depreciation {
     case increasing
     case same
     case progressiveIncreasing
-    case obselete
+    case obsolete
 
     static func of(item: Item) -> Depreciation {
         switch item.name {
@@ -33,7 +33,7 @@ enum Depreciation {
     static func ofWhenExpired(item: Item) -> Depreciation {
         switch item.name {
         case "Aged Brie": return .increasing
-        case "Backstage passes to a TAFKAL80ETC concert": return .obselete
+        case "Backstage passes to a TAFKAL80ETC concert": return .obsolete
         case "Sulfuras, Hand of Ragnaros": return .same
         case "Conjured Mana Cake": return .decreasing2X
         default: return .decreasing
@@ -61,7 +61,7 @@ enum Depreciation {
             return 0
         case .same:
             return 0
-        case .obselete:
+        case .obsolete:
             return  -item.quality
         case .progressiveIncreasing:
             let toBeAmount = item.quality + increasingAmount(sellIn: item.sellIn) // 불변하게 만들고 싶다..
