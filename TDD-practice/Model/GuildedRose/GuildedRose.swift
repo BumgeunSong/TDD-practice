@@ -39,6 +39,13 @@ struct PolicyMaker {
         default: return .decrease
         }
     }
+
+    static func qualityLimit(of item: Item) -> QualityLimit {
+        switch item.name {
+        case "Sulfuras, Hand of Ragnaros": return .none
+        default: return .zeroToFifty
+        }
+    }
 }
 
 enum QualityPolicy {
@@ -79,12 +86,31 @@ enum ExpiryPolicy {
     case decrease
     case same
 
-    func amountToChange(item: Item) -> Int {
+    var amountToChange: Int {
         switch self {
         case .decrease:
             return -1
         case .same:
             return 0
+        }
+    }
+}
+
+enum QualityLimit {
+    case zeroToFifty
+    case none
+
+    var max: Int {
+        switch self {
+        case .zeroToFifty: return 50
+        case .none: return Int.max
+        }
+    }
+
+    var min: Int {
+        switch self {
+        case .zeroToFifty: return 0
+        case .none: return Int.min
         }
     }
 }
@@ -105,7 +131,7 @@ public class GildedRose {
 
     public func updateQuality() {
         items = items.map { item -> Item in
-            item.sellIn += changeForSellIn(item: item)
+            item.sellIn += PolicyMaker.expiryPolicy(of: item).amountToChange
             return item
         }.map { item -> Item in
             item.quality += amountToChange(item: item)
@@ -128,14 +154,14 @@ public class GildedRose {
     }
 
     func adjustForLimit(item: Item) -> Item {
-        if item.name == "Sulfuras, Hand of Ragnaros" { return item }
+        let qualityLimit = PolicyMaker.qualityLimit(of: item)
 
         var newItem = item
-        if newItem.quality > 50 {
-            newItem.quality = 50
+        if newItem.quality > qualityLimit.max {
+            newItem.quality = qualityLimit.max
         }
-        if newItem.quality < 0 {
-            newItem.quality = 0
+        if newItem.quality < qualityLimit.min {
+            newItem.quality = qualityLimit.min
         }
         return newItem
     }
