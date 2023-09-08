@@ -32,6 +32,13 @@ struct PolicyMaker {
         default: return .decreasing
         }
     }
+
+    static func expiryPolicy(of item: Item) -> ExpiryPolicy {
+        switch item.name {
+        case "Sulfuras, Hand of Ragnaros": return .same
+        default: return .decrease
+        }
+    }
 }
 
 enum QualityPolicy {
@@ -64,6 +71,20 @@ enum QualityPolicy {
         case 1...5: return 3
         case 6...10: return 2
         default: return 1
+        }
+    }
+}
+
+enum ExpiryPolicy {
+    case decrease
+    case same
+
+    func amountToChange(item: Item) -> Int {
+        switch self {
+        case .decrease:
+            return -1
+        case .same:
+            return 0
         }
     }
 }
