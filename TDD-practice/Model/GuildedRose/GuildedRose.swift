@@ -125,12 +125,12 @@ public class GildedRose {
         if item.name == "Sulfuras, Hand of Ragnaros" { return item }
 
         var newItem = item
-        if item.quality > 50 {
-            item.quality = 50
+        if newItem.quality > 50 {
+            newItem.quality = 50
         }
-        if item.quality < 0 {
-            item.quality = 0
+        if newItem.quality < 0 {
+            newItem.quality = 0
         }
-        return item
+        return newItem
     }
 }
