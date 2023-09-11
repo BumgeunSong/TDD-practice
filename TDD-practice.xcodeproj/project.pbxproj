@@ -12,6 +12,7 @@
 		873A19B32A81D2D200D5E9BF /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873A19B22A81D2D200D5E9BF /* Item.swift */; };
 		873A19B72A81D33200D5E9BF /* GuildedRoseMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873A19B62A81D33200D5E9BF /* GuildedRoseMain.swift */; };
 		878501742AAEA2AB00D9A261 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878501732AAEA2AB00D9A261 /* Game.swift */; };
+		878501762AAEA39300D9A261 /* BowlingGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878501752AAEA39300D9A261 /* BowlingGameTests.swift */; };
 		87CC81002A7E4E20005CA343 /* TDD_practiceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CC80FF2A7E4E20005CA343 /* TDD_practiceApp.swift */; };
 		87CC81022A7E4E20005CA343 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CC81012A7E4E20005CA343 /* ContentView.swift */; };
 		87CC81042A7E4E21005CA343 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87CC81032A7E4E21005CA343 /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 		873A19B22A81D2D200D5E9BF /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		873A19B62A81D33200D5E9BF /* GuildedRoseMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuildedRoseMain.swift; sourceTree = "<group>"; };
 		878501732AAEA2AB00D9A261 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		878501752AAEA39300D9A261 /* BowlingGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BowlingGameTests.swift; sourceTree = "<group>"; };
 		87CC80FC2A7E4E20005CA343 /* TDD-practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TDD-practice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87CC80FF2A7E4E20005CA343 /* TDD_practiceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDD_practiceApp.swift; sourceTree = "<group>"; };
 		87CC81012A7E4E20005CA343 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 			children = (
 				87CC81102A7E4E21005CA343 /* TDD_practiceTests.swift */,
 				873A19AE2A81D2A100D5E9BF /* GildedRoseTests.swift */,
+				878501752AAEA39300D9A261 /* BowlingGameTests.swift */,
 			);
 			path = "TDD-practiceTests";
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87CC81112A7E4E21005CA343 /* TDD_practiceTests.swift in Sources */,
+				878501762AAEA39300D9A261 /* BowlingGameTests.swift in Sources */,
 				873A19AF2A81D2A100D5E9BF /* GildedRoseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
