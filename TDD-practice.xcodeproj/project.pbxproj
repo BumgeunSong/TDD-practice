@@ -11,6 +11,7 @@
 		873A19B12A81D2B200D5E9BF /* GuildedRose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873A19B02A81D2B200D5E9BF /* GuildedRose.swift */; };
 		873A19B32A81D2D200D5E9BF /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873A19B22A81D2D200D5E9BF /* Item.swift */; };
 		873A19B72A81D33200D5E9BF /* GuildedRoseMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873A19B62A81D33200D5E9BF /* GuildedRoseMain.swift */; };
+		878501742AAEA2AB00D9A261 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878501732AAEA2AB00D9A261 /* Game.swift */; };
 		87CC81002A7E4E20005CA343 /* TDD_practiceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CC80FF2A7E4E20005CA343 /* TDD_practiceApp.swift */; };
 		87CC81022A7E4E20005CA343 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CC81012A7E4E20005CA343 /* ContentView.swift */; };
 		87CC81042A7E4E21005CA343 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87CC81032A7E4E21005CA343 /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 		873A19B02A81D2B200D5E9BF /* GuildedRose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuildedRose.swift; sourceTree = "<group>"; };
 		873A19B22A81D2D200D5E9BF /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		873A19B62A81D33200D5E9BF /* GuildedRoseMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuildedRoseMain.swift; sourceTree = "<group>"; };
+		878501732AAEA2AB00D9A261 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		87CC80FC2A7E4E20005CA343 /* TDD-practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TDD-practice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87CC80FF2A7E4E20005CA343 /* TDD_practiceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDD_practiceApp.swift; sourceTree = "<group>"; };
 		87CC81012A7E4E20005CA343 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -88,6 +90,14 @@
 				873A19B22A81D2D200D5E9BF /* Item.swift */,
 			);
 			path = GuildedRose;
+			sourceTree = "<group>";
+		};
+		878501722AAEA28900D9A261 /* Bowling */ = {
+			isa = PBXGroup;
+			children = (
+				878501732AAEA2AB00D9A261 /* Game.swift */,
+			);
+			path = Bowling;
 			sourceTree = "<group>";
 		};
 		87CC80F32A7E4E20005CA343 = {
@@ -151,6 +161,7 @@
 		87CC812A2A7E4F51005CA343 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				878501722AAEA28900D9A261 /* Bowling */,
 				873A19B52A81D2E700D5E9BF /* GuildedRose */,
 				873A19B42A81D2DD00D5E9BF /* Wardrobe */,
 				87CC812D2A7E4FDC005CA343 /* Kata.swift */,
@@ -266,6 +277,7 @@
 				87CC812C2A7E4FBD005CA343 /* KataRow.swift in Sources */,
 				87CC812E2A7E4FDC005CA343 /* Kata.swift in Sources */,
 				873A19B12A81D2B200D5E9BF /* GuildedRose.swift in Sources */,
+				878501742AAEA2AB00D9A261 /* Game.swift in Sources */,
 				873A19B72A81D33200D5E9BF /* GuildedRoseMain.swift in Sources */,
 				87CC81322A7E50F7005CA343 /* KataDetail.swift in Sources */,
 				87CC81302A7E50B1005CA343 /* KataList.swift in Sources */,
