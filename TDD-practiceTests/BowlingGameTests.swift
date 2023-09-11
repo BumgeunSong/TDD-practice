@@ -28,4 +28,15 @@ final class BowlingGameTests: XCTestCase {
     func test_no_roll_zero_score() {
         XCTAssertEqual(Game().score(), 0)
     }
+
+    func test_roll_10_zero_score() {
+        // Given
+        let sut = Game()
+
+        // When
+        sut.roll(numberOfKnockedPin: 10)
+
+        XCTAssertEqual(sut.score(), 0)
+    }
+
 }
