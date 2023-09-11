@@ -144,14 +144,13 @@ extension Array where Element == Item {
     }
 
     private func updateSellIn(item: Item) -> Item {
-        var newItem = item
+        let newItem = item
         newItem.sellIn += PolicyMaker.expiryPolicy(of: item).amountToChange
         return newItem
     }
 
     private func updateQuality(item: Item) -> Item {
-        var newItem = item
-
+        let newItem = item
         newItem.quality += PolicyMaker.qualityPolicy(of: item).amountToChange(item: item)
 
         guard item.sellIn < 0 else { return newItem }
@@ -163,7 +162,7 @@ extension Array where Element == Item {
     private func adjustForLimit(item: Item) -> Item {
         let qualityLimit = PolicyMaker.qualityLimit(of: item)
 
-        var newItem = item
+        let newItem = item
         if newItem.quality > qualityLimit.max {
             newItem.quality = qualityLimit.max
         }
