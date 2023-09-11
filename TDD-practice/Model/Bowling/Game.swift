@@ -18,11 +18,19 @@ import Foundation
  */
 
 final class Game {
-    func roll(numberOfKnockedPin: Int) {
 
+    private var knockedPinInFrame: Int = 0
+    private var numberOfRollsInFrame: Int = 0
+
+    func roll(numberOfKnockedPin: Int) {
+        knockedPinInFrame += numberOfKnockedPin
+        numberOfRollsInFrame += 1
     }
 
     func score() -> Int {
+        if numberOfRollsInFrame >= 2 {
+            return knockedPinInFrame
+        }
         return 0
     }
 }
