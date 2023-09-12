@@ -50,4 +50,17 @@ final class BowlingGameTests: XCTestCase {
         // Then
         XCTAssertEqual(sut.score(), 8)
     }
+
+    func test_roll_10_3_score_13() {
+        // Given
+        let sut = Game()
+
+        // When
+        // When
+        sut.roll(numberOfKnockedPin: 10)
+        sut.roll(numberOfKnockedPin: 3)
+
+        // Then
+        XCTAssertEqual(sut.score(), 13)
+    }
 }
